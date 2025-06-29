@@ -34,3 +34,12 @@ def get_total(db: Session = Depends(get_db)):
     if total is None:
         raise HTTPException(status_code=404, detail="No expenses found")
     return {"total": total or 0}
+
+@router.get("/expenses/category/{category_name}", response_model=list[schemas.Expense])
+def read_expenses_by_category(category_name: str, db:Session = Depends(get_db)):
+    expenses = crud.get_expense_by_category(db, category_name)
+    if not expenses:
+        raise HTTPException(status_code=404, detail="No expenses found for this category")
+    return expenses
+
+

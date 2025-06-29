@@ -24,3 +24,5 @@ def get_total_expenses(db: Session):
         func.sum(models.Expense.amount).label("total")
     ).scalar()
 
+def get_expense_by_category(db: Session, category: str):
+    return db.query(models.Expense).filter(models.Expense.category == category).all()
