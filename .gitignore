@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite DB
+*.db
+
+# VS Code settings
+.vscode/
+
+# Python environment
+env/
+venv/
+ENV/
+.venv/
+
+# MacOS
+.DS_Store
+
+# Logs
+*.log
+
+# Uvicorn reload file (optional)
+*.pid
+
+# Python egg info
+*.egg-info/
+dist/
+build/
+
+# Pytest cache
+.pytest_cache/
+
+# IDEs
+.idea/
