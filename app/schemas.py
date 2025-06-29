@@ -16,3 +16,18 @@ class Expense(ExpenseBase):
     class Config:
         orm_mode = True
 
+class IncomeBase(BaseModel):
+    title: str
+    amount: float
+    description: str
+
+class IncomeCreate(IncomeBase):
+    pass
+
+class Income(IncomeBase):
+    id: int
+    created_at: datetime
+
+    class Config:
+        orm_mode = True
+
