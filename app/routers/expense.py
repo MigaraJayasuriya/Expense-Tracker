@@ -44,22 +44,22 @@ def read_expenses_by_category(category_name: str, db:Session = Depends(get_db)):
 
 # income endpoints
 
-@router.post("incomes/", response_model=schemas.Income)
+@router.post("/incomes/", response_model=schemas.Income)
 def create_income(income: schemas.IncomeCreate, db: Session = Depends(get_db)):
     return crud.create_income(db, income)
 
-@router.get("incomes/", response_model=list[schemas.Income])
+@router.get("/incomes/", response_model=list[schemas.Income])
 def get_incomes(db: Session = Depends(get_db)):
     return crud.get_incomes(db)
 
-@router.delete("incomes/{income_id}", response_model=schemas.Income)
+@router.delete("/incomes/{income_id}", response_model=schemas.Income)
 def delete_income(income_id: int, db: Session = Depends(get_db)):
     db_income = crud.delete_income(db, income_id)
     if not db_income:
         raise HTTPException(status_code=404, detail="Income not found")
     return db_income
 
-@router.get("incomes/total")
+@router.get("/incomes/total")
 def get_total_income(db: Session = Depends(get_db)):
     total = crud.get_total_income(db)
     if total is None:
