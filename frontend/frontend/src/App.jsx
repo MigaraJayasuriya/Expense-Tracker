@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import './App.css'
 import ExpenseList from './components/ExpenseList'
+import AddExpenseForm from './components/AddExpenses'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [reload, setReload] = useState(false);
 
   return (
     <>
-    <ExpenseList/>
+    <AddExpenseForm onAdd={() => setReload(!reload)}/>
+    <ExpenseList key={reload}/>
     </>
   )
 }

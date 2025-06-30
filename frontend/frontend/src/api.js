@@ -9,3 +9,6 @@ export const addExpense = (expense) =>
 
 export const deleteExpense = (id) =>
     axios.delete(`${API_BASE_URL}/expenses/${id}/`);
+
+export const getTotalExpenses = () =>
+    axios.get(`${API_BASE_URL}/expenses/total/`);

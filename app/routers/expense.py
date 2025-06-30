@@ -28,7 +28,7 @@ def delete_expense(expense_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Expense not found")
     return db_expense
 
-@router.get("expenses/total")
+@router.get("/expenses/total")
 def get_total(db: Session = Depends(get_db)):
     total = crud.get_total_expenses(db)
     if total is None:
