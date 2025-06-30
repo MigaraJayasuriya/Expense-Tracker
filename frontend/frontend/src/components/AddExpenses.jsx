@@ -9,6 +9,8 @@ const AddExpenseForm = ({ onAdd }) => {
         description: "",
     });
 
+    const categories = ["Food", "Transport", "Utilities", "Health", "Other"];
+
     const handleChange = (e) => 
         setForm({...form, [e.target.name]: e.target.value });
 
@@ -28,7 +30,14 @@ const AddExpenseForm = ({ onAdd }) => {
         <form onSubmit={handleSubmit}>
             <input name="title" placeholder="Title" onChange={handleChange} value={form.title}/>
             <input name="amount" placeholder="Amount" type="number" onChange={handleChange} value={form.amount}/>
-            <input name="category" placeholder="Category" onChange={handleChange} value={form.category}/>
+            <select name="category" value={form.category} onChange={handleChange}>
+                <option value="" disabled>Select Category</option>
+                {categories.map((cat) => (
+                    <option key={cat} value={cat}>
+                        {cat}
+                    </option>
+                ))}
+            </select>
             <button type="submit">Add Expense</button>
         </form>
     );
