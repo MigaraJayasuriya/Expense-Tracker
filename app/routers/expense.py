@@ -72,5 +72,3 @@ def get_balance(db: Session = Depends(get_db)):
     total_income = crud.get_total_income(db) or 0
     balance = total_income - total_expenses
     return {"balance": balance}
-
-
