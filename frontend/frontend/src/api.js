@@ -25,3 +25,6 @@ export const deleteIncome = (id) =>
 
 export const getTotalIncomes = () =>
     axios.get(`${API_BASE_URL}/incomes/total/`);
+
+export const getBalance = () => 
+    axios.get(`${API_BASE_URL}/balance/`);

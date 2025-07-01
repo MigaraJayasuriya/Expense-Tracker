@@ -66,4 +66,11 @@ def get_total_income(db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="No income found")
     return {"total": total or 0}
 
+@router.get("/balance/")
+def get_balance(db: Session = Depends(get_db)):
+    total_expenses = crud.get_total_expenses(db) or 0
+    total_income = crud.get_total_income(db) or 0
+    balance = total_income - total_expenses
+    return {"balance": balance}
+
 
