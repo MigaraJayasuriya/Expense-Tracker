@@ -22,8 +22,8 @@ const ExpenseList = () => {
 
     const handleDelete = async (id) => {
         await deleteExpense(id);
-        loadExpenses();
-        loadTotalExpenses();
+        await loadExpenses();
+        await loadTotalExpenses();
     };
 
     return (

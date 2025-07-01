@@ -12,3 +12,16 @@ export const deleteExpense = (id) =>
 
 export const getTotalExpenses = () =>
     axios.get(`${API_BASE_URL}/expenses/total/`);
+
+// Income-related API calls
+
+export const getIncomes = () => axios.get(`${API_BASE_URL}/incomes/`);
+
+export const addIncome = (income) =>
+    axios.post(`${API_BASE_URL}/incomes/`, income);
+
+export const deleteIncome = (id) =>
+    axios.delete(`${API_BASE_URL}/incomes/${id}/`);
+
+export const getTotalIncomes = () =>
+    axios.get(`${API_BASE_URL}/incomes/total/`);
